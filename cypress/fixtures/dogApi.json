@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://dog.ceo/api",
+  "breed": "hound",
+  "invalidBreed": "invalidbreedxyz"
+}
