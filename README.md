@@ -1,4 +1,4 @@
-# Technical Test — Agibank QA
+# Technical Test
 
 Projeto de testes automatizados desenvolvido com [Cypress](https://www.cypress.io/) cobrindo cenários **Web** (Blog do Agi) e **API** (Dog CEO API).
 
@@ -12,6 +12,7 @@ Projeto de testes automatizados desenvolvido com [Cypress](https://www.cypress.i
 - [Estrutura do projeto](#estrutura-do-projeto)
 - [Suítes de teste](#suítes-de-teste)
 - [Execução dos testes](#execução-dos-testes)
+- [CI/CD](#cicd)
 - [Relatório de testes](#relatório-de-testes)
 
 ---
@@ -144,6 +145,37 @@ npm run cy:run:web
 ```bash
 npm run cy:run:headed
 ```
+
+---
+
+## CI/CD
+
+O projeto utiliza **GitHub Actions** para execução automatizada dos testes.
+
+### Agendamento
+
+Os testes rodam automaticamente **4 vezes por dia**, nos seguintes horários (UTC):
+
+| Horário UTC | Horário BRT (UTC-3) |
+|---|---|
+| 00:00 | 21:00 (dia anterior) |
+| 06:00 | 03:00 |
+| 12:00 | 09:00 |
+| 18:00 | 15:00 |
+
+### Triggers
+
+Além do agendamento, o pipeline também é disparado em:
+
+- **Push** na branch `main`
+- **Pull Request** para a branch `main`
+
+### Artefatos gerados
+
+Após cada execução, os seguintes artefatos ficam disponíveis na aba **Actions** do repositório por 7 dias:
+
+- **`cypress-report-{n}`** — relatório HTML completo (sempre gerado)
+- **`cypress-screenshots-{n}`** — screenshots dos testes que falharam (apenas em falha)
 
 ---
 
