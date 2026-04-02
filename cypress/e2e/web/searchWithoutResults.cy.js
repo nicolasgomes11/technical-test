@@ -1,6 +1,6 @@
-describe('Blog Search - Without Results', () => {
+describe('Busca no Blog - Sem Resultados', () => {
 
-  it('should display a "no results" message when searching for an invalid term', () => {
+  it('deve exibir uma mensagem de "nenhum resultado" ao buscar por um termo inválido', () => {
     cy.searchWithResults()
   })
 })
